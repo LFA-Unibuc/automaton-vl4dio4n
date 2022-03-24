@@ -70,8 +70,7 @@ class Automaton():
         stage = None
         for i, line in enumerate(input_str.split("\n")):
             
-            # line = line.replace(" ", "")
-            if line[0] == '#':    # comment line (skip it)
+            if line[0] == '#':
                 continue
 
             try:
@@ -136,6 +135,11 @@ class Automaton():
         return tuple(tokens)
 
     def create_graph(self, config):
+        """
+        Build the graph associated to the automaton.
+        Every state represents a vertex and the transition between to states is
+        represented by an edge labeled with the word that makes the transition.
+        """
         graph = {}
         for transition in config["Transitions"]:
             edge = (transition[2], transition[1])
