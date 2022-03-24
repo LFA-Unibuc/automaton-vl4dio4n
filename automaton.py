@@ -40,7 +40,7 @@ class Automaton():
         self.start_state = start_state
         self.final_states = final_states
         self.graph = self.create_graph(config)
-
+        print(self.graph)
         return True
 
     def accepts_input(self, input_str):
@@ -142,12 +142,14 @@ class Automaton():
         """
         graph = {}
         for transition in config["Transitions"]:
-            edge = (transition[2], transition[1])
             try:
-                if edge not in graph[transition[0]]:
-                    graph[transition[0]].append(edge)
+                try:
+                    if transition[2] not in  graph[transition[0]][transition[1]]:
+                        graph[transition[0]][transition[1]].append(transition[2])
+                except:
+                    graph[transition[0]][transition[1]] = [transition[2]]
             except:
-                graph[transition[0]] = [edge]
+                graph[transition[0]] = {transition[1]: [transition[2]]}
         return graph
     
 
