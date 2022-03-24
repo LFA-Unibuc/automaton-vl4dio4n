@@ -1,0 +1,33 @@
+#
+# comment lines ( skip them )
+#
+Sigma :
+    word1
+    word2
+    word3
+    word4
+End
+#
+# comment lines ( skip them )
+#
+States :
+    state1
+    state2 
+    state3
+    state4 ,F
+    state5 , S, F
+           
+End
+#
+# comment lines ( skip them )
+#
+Transitions :
+    state1, word1 , state2
+    state2, word2 , state3
+    state3,word3,state4
+    state4,word4,state5
+    state5, word2, state2
+    state3, word1, state4
+    state4, word3, state1 
+    state4, word3, state1 
+End
