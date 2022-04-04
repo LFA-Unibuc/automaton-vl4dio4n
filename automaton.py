@@ -40,7 +40,6 @@ class Automaton():
         self.start_state = start_state
         self.final_states = final_states
         self.graph = self.create_graph(config)
-        print(self.graph)
         return True
 
     def accepts_input(self, input_str):
@@ -151,7 +150,15 @@ class Automaton():
             except:
                 graph[transition[0]] = {transition[1]: [transition[2]]}
         return graph
+
+    def get_graph(self):
+        return self.graph
     
+    def get_final_states(self):
+        return self.final_states
+    
+    def get_start_state(self):
+        return self.start_state
 
 if __name__ == "__main__":
     a = Automaton('input.txt')
