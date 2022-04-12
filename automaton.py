@@ -69,14 +69,14 @@ class Automaton():
         stage = None
         for i, line in enumerate(input_str.split("\n")):
             
-            if line[0] == '#':
+            if len(line) == 0 or line[0] == '#':
                 continue
 
             try:
                 tokens = self.get_tokens(line)
             except:
                 raise Exception(f"InvalidInput: line {i + 1}")
-               
+            
             if len(tokens) == 0:
                 continue
 
