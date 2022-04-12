@@ -8,6 +8,7 @@ class Automaton():
         self.graph = {} 
         self.start_state = ""
         self.final_states = [] 
+        self.sigma = []
             
     def validate(self):
         """Return a Boolean
@@ -37,6 +38,7 @@ class Automaton():
             if transition[0] not in config["States"] or transition[2] not in config["States"] or transition[1] not in config["Sigma"]:
                 raise Exception("ValidationException: transitions")
 
+        self.sigma = config["Sigma"]
         self.start_state = start_state
         self.final_states = final_states
         self.graph = self.create_graph(config)
@@ -159,6 +161,9 @@ class Automaton():
     
     def get_start_state(self):
         return self.start_state
+    
+    def get_sigma(self):
+        return self.sigma
 
 if __name__ == "__main__":
     a = Automaton('input.txt')
